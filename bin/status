@@ -1,0 +1,13 @@
+#!/bin/bash
+
+ROOT_DIRECTORY=/etc/push2syslog
+PID_DIRECTORY=/pid
+
+FILE=${ROOT_DIRECTORY}${PID_DIRECTORY}/push2syslog.pid
+
+if [ -f $FILE ];
+then
+   echo "push2syslog is running ..."
+else
+   echo "push2syslog is stopped ..."
+fi

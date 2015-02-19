@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+ROOT_DIRECTORY=/etc/push2syslog
+USER=root
+
+########
+SERVER=${ROOT_DIRECTORY}
+START=${SERVER}/bin/start
+STOP=${SERVER}/bin/stop
+STATUS="${SERVER}/bin/status"
+
+case "$1" in
+start)
+echo -n "Starting push2syslog services: "
+su - ${USER} ${START}
+touch /var/lock/subsys/push2syslog
+;;
+stop)
+echo -n "Shutting down push2syslog services: "
+su - ${USER} ${STOP}
+rm -f /var/lock/subsys/push2syslog
+;;
+status)
+su - ${USER} ${STATUS}
+;;
+restart)
+su - ${USER} ${STOP}
+su - ${USER} ${START}
+;;
+reload)
+;;
+*)
+echo "Usage: push2syslog {start|stop|status|reload}"
+exit 1
+;;
+esac

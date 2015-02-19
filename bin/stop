@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+# This script stops the (running) application
+#
+
+ROOT_DIRECTORY=/etc/push2syslog
+PID_DIRECTORY=/pid
+
+file=${ROOT_DIRECTORY}${PID_DIRECTORY}/push2syslog.pid
+
+#test for existence of the heyu log file
+if [ -f $file ]
+then
+
+  while read line
+  do
+    #echo $line
+    kill $line
+    #echo "Killed $line"
+  done < $file
+
+fi
+
+rm -rf ${ROOT_DIRECTORY}${PID_DIRECTORY}/push2syslog.pid

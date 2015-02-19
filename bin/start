@@ -1,0 +1,21 @@
+#! /usr/bin/env bash
+
+ROOT_DIRECTORY=/etc/push2syslog
+PID_DIRECTORY=/pid
+
+file=${ROOT_DIRECTORY}/list-of-paths
+
+#test for existence of the heyu log file
+if [ -f $file ]
+then
+
+  #read through the file looking for the word Temperature =
+
+  while read line
+  do
+    #echo $line
+    tailf $line | logger -t aem &
+    echo $! >> ${ROOT_DIRECTORY}${PID_DIRECTORY}/push2syslog.pid
+  done < $file
+
+fi
