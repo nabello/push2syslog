@@ -16,6 +16,7 @@ then
   do
     #echo $line
     kill $line
+    kill $((line-1))
     #echo "Killed $line"
   done < $file
 
