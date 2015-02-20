@@ -2,6 +2,7 @@
 
 ROOT_DIRECTORY=/etc/push2syslog
 PID_DIRECTORY=/pid
+PROGRAM=aem
 
 file=${ROOT_DIRECTORY}/list-of-paths
 
@@ -14,7 +15,7 @@ then
   while read line
   do
     #echo $line
-    tailf $line | logger -t aem &
+    tailf $line | logger -t ${PROGRAM} &
     echo $! >> ${ROOT_DIRECTORY}${PID_DIRECTORY}/push2syslog.pid
   done < $file
 
