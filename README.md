@@ -2,12 +2,12 @@ Author: nabello
 
 Installation
 
-# git https://github.com/nabello/push2syslog.git
-# mv push2syslog /etc
-# cd /etc/push2syslog
-# cp push2syslog /etc/init.d
-# cd /etc/init.d/
-# chmod 755 push2syslog
+\# git https://github.com/nabello/push2syslog.git
+\# mv push2syslog /etc
+\# cd /etc/push2syslog
+\# cp push2syslog /etc/init.d
+\# cd /etc/init.d/
+\# chmod 755 push2syslog
 
 Now you can use the push2syslog service by adding paths of logs you want to push to syslog in 
 /etc/push2syslog/list-of-paths then do:
