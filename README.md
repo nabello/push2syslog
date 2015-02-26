@@ -4,7 +4,7 @@ push2syslog allows you to push custom logs to syslog
 
 ## Installation
 
-\# git https://github.com/nabello/push2syslog.git
+\# git clone https://github.com/nabello/push2syslog.git
 
 \# mv push2syslog /etc
 
